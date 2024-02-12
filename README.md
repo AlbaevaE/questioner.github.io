@@ -3,76 +3,116 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Networking Questionnaire</title>
+    <title>Questionnaire Form</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
             padding: 0;
-            background: #f7f7f7;
+            background: #e9ebee; /* Background color similar to the one in the image */
         }
         .container {
-            max-width: 600px;
-            margin: auto;
-            background: #fff;
+            background: white;
+            max-width: 400px;
+            margin: 50px auto;
             padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        h2 {
-            text-align: center;
-            color: #333;
-        }
-        form {
-            display: flex;
-            flex-direction: column;
+        .form-group {
+            margin-bottom: 15px;
         }
         label {
-            margin-top: 10px;
+            display: block;
+            margin-bottom: 5px;
+            color: #333;
         }
         input[type=text],
-        textarea {
+        input[type=date],
+        input[type=email],
+        textarea,
+        select {
+            width: 100%;
             padding: 10px;
             margin-top: 5px;
-            border: 1px solid #ddd;
             border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        textarea {
+            resize: vertical;
         }
         button {
-            margin-top: 20px;
-            padding: 10px;
-            border: none;
-            border-radius: 4px;
-            background-color: #5cb85c;
+            background-color: #4267b2; /* Facebook blue for the button */
             color: white;
+            border: none;
+            padding: 10px 20px;
+            text-transform: uppercase;
+            border-radius: 4px;
             cursor: pointer;
+            margin-top: 10px;
         }
         button:hover {
-            background-color: #4cae4c;
+            background-color: #365899; /* Darker blue on hover */
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h2>Networking Questionnaire</h2>
-        <form id="networkingQuestionnaire" action="your-backend-endpoint" method="post">
-            <label for="helpNeeded">What kind of help do you need?</label>
-            <textarea id="helpNeeded" name="helpNeeded" rows="4" required></textarea>
-
-            <label for="expertiseOffered">How can other participants help you with their expertise?</label>
-            <textarea id="expertiseOffered" name="expertiseOffered" rows="4" required></textarea>
-
-            <label for="expertiseNeeded">How can you help others?</label>
-            <textarea id="expertiseNeeded" name="expertiseNeeded" rows="4" required></textarea>
-
-            <button type="submit">Submit</button>
+        <form id="questionnaireForm">
+            <!-- Full Name -->
+            <div class="form-group">
+                <label for="fullName">Имя Фамилия</label>
+                <input type="text" id="fullName" name="fullName" maxlength="100" required>
+            </div>
+            <!-- Date of Birth -->
+            <div class="form-group">
+                <label for="dob">Дата рождения</label>
+                <input type="date" id="dob" name="dob" required>
+            </div>
+            <!-- City -->
+            <div class="form-group">
+                <label for="city">Город</label>
+                <input type="text" id="city" name="city" required>
+            </div>
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <!-- Description -->
+            <div class="form-group">
+                <label for="description">Описание</label>
+                <textarea id="description" name="description" rows="3" maxlength="1000" required></textarea>
+            </div>
+            <!-- Sex -->
+            <div class="form-group">
+                <label for="sex">Пол</label>
+                <select id="sex" name="sex" required>
+                    <option value="">Выберите...</option>
+                    <option value="female">Женский</option>
+                    <option value="male">Мужской</option>
+                    <option value="other">Другое</option>
+                </select>
+            </div>
+            <!-- Help Needed -->
+            <div class="form-group">
+                <label for="helpNeeded">В чем вам нужна помощь?</label>
+                <input type="text" id="helpNeeded" name="helpNeeded" maxlength="250" required>
+            </div>
+            <!-- Help to Others -->
+            <div class="form-group">
+                <label for="helpOthers">Чем вы можете помочь?</label>
+                <input type="text" id="helpOthers" name="helpOthers" maxlength="250" required>
+            </div>
+            <!-- Save Button -->
+            <button type="submit">Сохранить</button>
         </form>
     </div>
     <script>
-        // You can add JavaScript to handle the form submission dynamically here
-        // For example, to handle form submission via AJAX
-        document.getElementById('networkingQuestionnaire').addEventListener('submit', function(event) {
+        document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
             event.preventDefault();
-            // AJAX request to your backend
+            // Add your form submission logic here
+            alert('Form submitted!');
         });
     </script>
 </body>
