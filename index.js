@@ -1,12 +1,13 @@
 document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let tg = window.Telegram.WebApp;
+    tg.expand();
     document.getElementById("error").innerText = '';
     let name = document.getElementById("fullName").value;
     let email = document.getElementById("email").value;
     let city = document.getElementById("city").value;
     let description = document.getElementById("description").value;
-    let gender = document.getElementById("gender").value;
+    let gender = document.querySelector('input[name="gender"]:checked').value;
     let dateOfBirth = document.getElementById("dob").value;
     let helpNeeded = document.getElementById("helpNeeded").value;
     let helpOthers = document.getElementById("helpOthers").value;
@@ -15,16 +16,16 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
         document.getElementById("error").innerText = 'Ошибка в имени';
         return;
     }
-    if(email.length < 5){
-        document.getElementById("error").innerText = 'Ошибка в email';
+    if(!email.includes('@') || email.length > 100){
+        document.getElementById("error").innerText = 'Please enter a valid email';
         return;
     }
-    if(description.length < 50){
+    if(description.length < 10){
         document.getElementById("error").innerText = 'Ошибка в описании';
         return;
     }
-    if(gender == undefined){
-        document.getElementById("error").innerText = 'Выберите пол';
+    if(!gender){
+        document.getElementById("error").innerText = 'Please select a gender';
         return;
     }
 
@@ -43,7 +44,3 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
 
     tg.close();
 });
-
-//let save = document.getElementById("");
-tg.expand();
- 
