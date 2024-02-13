@@ -36,10 +36,10 @@
                 <label for="description">Описание</label>
                 <textarea id="description" name="description" rows="3" maxlength="1000" required></textarea>
             </div>
-            <!-- Sex -->
+            <!-- gender -->
             <div class="form-group">
-                <label for="sex">Пол</label>
-                <select id="sex" name="sex" required>
+                <label for="gender">Пол</label>
+                <select id="gender" name="gender" required>
                     <option value="">Выберите...</option>
                     <option value="female">Женский</option>
                     <option value="male">Мужской</option>
@@ -56,6 +56,7 @@
                 <label for="helpOthers">Чем вы можете помочь?</label>
                 <input type="text" id="helpOthers" name="helpOthers" maxlength="250" required>
             </div>
+            <div id="error"></div>
             <!-- Save Button -->
             <button type="submit">Сохранить</button>
         </form>
