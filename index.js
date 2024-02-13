@@ -1,5 +1,6 @@
 document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
     event.preventDefault();
+    let tg = window.Telegram.WebApp;
     document.getElementById("error").innerText = '';
     let name = document.getElementById("fullName").value;
     let email = document.getElementById("email").value;
@@ -43,8 +44,6 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
     tg.close();
 });
 
-
-let tg = window.Telegram.WebApp;
-let save = document.getElementById("");
+//let save = document.getElementById("");
 tg.expand();
  
