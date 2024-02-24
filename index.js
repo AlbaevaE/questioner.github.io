@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let tg = window.Telegram.WebApp;
-    const url = 'http://91.213.233.83:11000/api/AddNewChatUser';
+    const url = '';
     tg.expand();
     document.getElementById("error").innerText = '';
     let name = document.getElementById("fullName").value;
