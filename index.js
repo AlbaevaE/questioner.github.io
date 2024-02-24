@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function() {
 document.getElementById('questionnaireForm').addEventListener('submit', function(event) {
     event.preventDefault();
     let tg = window.Telegram.WebApp;
-    const url = 'https://localhost:5001/api/AddNewChatUser';
+    const url = 'http://91.213.233.83:11000/api/AddNewChatUser';
     tg.expand();
     document.getElementById("error").innerText = '';
     let name = document.getElementById("fullName").value;
@@ -33,7 +33,9 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
     let dateOfBirth = document.getElementById("dob").value;
     let helpNeeded = document.getElementById("helpNeeded").value;
     let helpOthers = document.getElementById("helpOthers").value;
-    let userId = tg.initData.user.id;
+    let userId = tg.initData.user.ID;
+    let userName = tg.initData.user.username;
+    let queryId = tg.initData.query_id;
     
     if(name.length < 20){
         document.getElementById("error").innerText = 'Ошибка в имени';
@@ -54,6 +56,8 @@ document.getElementById('questionnaireForm').addEventListener('submit', function
 
     let data = {
         Id: userId,
+        UserTelName: userName,
+        QueryId:queryId,
         Name: name,
         Email: email,
         DateOfBirth: dateOfBirth,
